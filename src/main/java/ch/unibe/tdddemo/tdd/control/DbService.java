@@ -17,10 +17,10 @@ public class DbService {
   @Autowired
   EntityManager em;
 
-  public List<EmploymentDTO> getEmployment(String testguid) {
+  public List<EmploymentDTO> getEmployment(String guid) {
     return queryExecutor.executeSelect(em,
         EmploymentDTO.class,
         "query.sql",
-        testguid);
+        guid);
   }
 }
