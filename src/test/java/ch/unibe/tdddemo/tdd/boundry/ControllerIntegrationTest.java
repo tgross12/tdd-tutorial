@@ -31,13 +31,15 @@ public class ControllerIntegrationTest {
   public void getUnisportByPersonalNrIntegrationTest() throws Exception {
     String url = "http://localhost:" + port + "/employmentbyguid?guid=cbtestguid";
     ResponseEntity result = restTemplate.getForEntity(url, String.class);
-    assertThat(result.getBody()).isEqualTo("test");
+    assertThat(result.getBody())
+        .isEqualTo(
+            "[{\"firstName\":\"Camillo\",\"lastName\":\"Berneri\",\"departmentName\":\"God Dept\",\"roleTypeName\":\"Employee\",\"beginDate\":\"2010-10-10\",\"endDate\":\"2015-10-17\"},{\"firstName\":\"Camillo\",\"lastName\":\"Berneri\",\"departmentName\":\"God Dept\",\"roleTypeName\":\"Lecturer\",\"beginDate\":\"2008-08-17\",\"endDate\":\"2020-12-01\"}]");
   }
 
   @Test
   public void getUnisportByShibIdExceptionTest() throws Exception {
     String url = "http://localhost:" + port + "/employmentbyguid?guid=notexistingguid";
     ResponseEntity result = restTemplate.getForEntity(url, String.class);
-    assertThat(result.toString()).contains("Not found");
+    assertThat(result.toString()).contains("Not Found");
   }
 }
