@@ -4,7 +4,8 @@ CREATE TABLE Persons
 (
     PersonID  INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(250) NOT NULL,
-    LastName  VARCHAR(250) NOT NULL
+    LastName  VARCHAR(250) NOT NULL,
+    Guid VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE Departments
@@ -32,10 +33,10 @@ CREATE TABLE Role
     EndDate      DATE
 );
 
-INSERT INTO Persons (FirstName, LastName)
-VALUES ('Leo', 'Tolstoy'),
-       ('Mikhail', 'Bakunin'),
-       ('Camillo', 'Berneri');
+INSERT INTO Persons (FirstName, LastName, Guid)
+VALUES ('Leo', 'Tolstoy', 'lttestguid'),
+       ('Mikhail', 'Bakunin', 'mbtestguid'),
+       ('Camillo', 'Berneri', 'cbtestguid');
 
 INSERT INTO Departments (Name)
 VALUES ('State Dept'),

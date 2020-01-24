@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
   @GetMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
-  public String getEmail() {
+  public String helloWorld() {
     return "{\"Greeting\":\"Hello world!\"}";
   }
 }
