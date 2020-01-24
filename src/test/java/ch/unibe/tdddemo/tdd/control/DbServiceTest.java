@@ -1,4 +1,4 @@
-package ch.unibe.tdddemo.tdd;
+package ch.unibe.tdddemo.tdd.control;
 
 import java.util.List;
 
@@ -9,6 +9,9 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+
+import ch.unibe.tdddemo.tdd.control.DbService;
+import ch.unibe.tdddemo.tdd.entity.EmploymentDTO;
 
 @SpringBootTest
 @Transactional

@@ -1,6 +1,5 @@
-package ch.unibe.tdddemo.tdd;
+package ch.unibe.tdddemo.tdd.control;
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +7,8 @@ import javax.persistence.EntityManager;
 import org.qlrm.executor.JpaQueryExecutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import ch.unibe.tdddemo.tdd.entity.EmploymentDTO;
 
 @Repository
 public class DbService {

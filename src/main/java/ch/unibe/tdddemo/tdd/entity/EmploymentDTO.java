@@ -1,7 +1,6 @@
-package ch.unibe.tdddemo.tdd;
+package ch.unibe.tdddemo.tdd.entity;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 public class EmploymentDTO {
   private final String firstName;
