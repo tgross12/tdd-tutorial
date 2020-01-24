@@ -20,7 +20,7 @@ CREATE TABLE RoleTypes
     Name       VARCHAR(250) NOT NULL
 );
 
-CREATE TABLE Role
+CREATE TABLE Roles
 (
     Roleid       INT AUTO_INCREMENT PRIMARY KEY,
     PersonID     INT,
@@ -46,7 +46,7 @@ INSERT INTO RoleTypes (Name)
 VALUES ('Employee'),
        ('Lecturer');
 
-INSERT INTO Role (PersonID, DepartmentID, RoleTypeID, BeginDate, EndDate)
+INSERT INTO Roles (PersonID, DepartmentID, RoleTypeID, BeginDate, EndDate)
 VALUES ((SELECT PersonID from Persons WHERE LastName = 'Tolstoy'),
         (SELECT DepartmentID FROM Departments WHERE Name = 'State Dept'),
         (SELECT RoleTypeID FROM RoleTypes WHERE Name = 'Employee'),

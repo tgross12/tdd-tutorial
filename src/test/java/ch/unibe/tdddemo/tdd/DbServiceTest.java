@@ -1,42 +1,37 @@
 package ch.unibe.tdddemo.tdd;
 
-import java.time.LocalDate;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest
 @Transactional
+@Sql(scripts = "/testdata.sql")
 public class DbServiceTest {
 
-  @Autowired
-  private DbService service;
+  @Autowired private DbService service;
 
   @Test
   public void findsEmploymentdataIfExistsTest() {
-    //WHEN
+    // WHEN
     List<EmploymentDTO> employmentData = service.getEmployment("testguid");
-    //THEN
+    // THEN
     assertThat(employmentData).hasSize(1);
     assertThat(employmentData.get(0)).hasFieldOrPropertyWithValue("firstName", "Test-Firstname");
+    assertThat(employmentData.get(0)).hasFieldOrPropertyWithValue("departmentName", "Test-Dept");
   }
 
   @Test
   public void noEmploymentdataFoundIfNotExistsTest() {
-    //WHEN
+    // WHEN
     List<EmploymentDTO> employmentData = service.getEmployment("non existing guid");
-    //THEN
+    // THEN
     assertThat(employmentData).hasSize(0);
   }
-
 }
