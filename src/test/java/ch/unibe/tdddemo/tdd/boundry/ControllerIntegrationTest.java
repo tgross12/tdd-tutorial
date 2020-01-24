@@ -19,8 +19,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
-@Sql(scripts = "/testdata.sql")
-@Transactional
 public class ControllerIntegrationTest {
 
   @Autowired private TestRestTemplate restTemplate;
