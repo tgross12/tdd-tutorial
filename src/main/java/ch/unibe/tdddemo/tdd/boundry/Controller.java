@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.unibe.tdddemo.tdd.control.DbService;
 import ch.unibe.tdddemo.tdd.entity.EmploymentDTO;
+import ch.unibe.tdddemo.tdd.exception.NoResultFoundException;
 
 @RestController
 public class Controller {

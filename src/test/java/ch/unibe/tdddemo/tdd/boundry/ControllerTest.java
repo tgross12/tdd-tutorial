@@ -17,6 +17,7 @@ import static org.mockito.Mockito.doReturn;
 
 import ch.unibe.tdddemo.tdd.control.DbService;
 import ch.unibe.tdddemo.tdd.entity.EmploymentDTO;
+import ch.unibe.tdddemo.tdd.exception.NoResultFoundException;
 
 class ControllerTest {
 
