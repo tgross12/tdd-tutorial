@@ -2,6 +2,9 @@ package ch.unibe.tdddemo.tdd.boundry;
 
 import java.util.List;
 
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.unibe.tdddemo.tdd.control.DbService;
@@ -16,7 +19,8 @@ public class Controller {
     this.service = service;
   }
 
-  public List<EmploymentDTO> getEmploymentByGuid(String guid) throws NoResultFoundException {
+  @GetMapping(value = "/employmentbyguid", produces = MediaType.APPLICATION_JSON_VALUE)
+  public List<EmploymentDTO> getEmploymentByGuid(@RequestParam String guid) throws NoResultFoundException {
     List<EmploymentDTO> employment = service.getEmployment(guid);
     if (employment.isEmpty()) {
       throw new NoResultFoundException();
