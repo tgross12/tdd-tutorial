@@ -19,9 +19,7 @@ public class DbServiceTest {
 
   @Test
   public void findsEmploymentdataIfExistsTest() {
-    // WHEN
     List<EmploymentDTO> employmentData = service.getEmployment("testguid");
-    // THEN
     assertThat(employmentData).hasSize(1);
     assertThat(employmentData.get(0)).hasFieldOrPropertyWithValue("firstName", "Test-Firstname");
     assertThat(employmentData.get(0)).hasFieldOrPropertyWithValue("departmentName", "Test-Dept");
@@ -29,9 +27,7 @@ public class DbServiceTest {
 
   @Test
   public void noEmploymentdataFoundIfNotExistsTest() {
-    // WHEN
     List<EmploymentDTO> employmentData = service.getEmployment("non existing guid");
-    // THEN
     assertThat(employmentData).hasSize(0);
   }
 }

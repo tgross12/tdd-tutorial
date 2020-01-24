@@ -17,9 +17,10 @@ public class DbService {
   EntityManager em;
 
   public List<EmploymentDTO> getEmployment(String testguid) {
-    return queryExecutor.executeSelect(em,
+    List<EmploymentDTO> employmentDTOS = queryExecutor.executeSelect(em,
         EmploymentDTO.class,
         "query.sql",
         testguid);
+    return employmentDTOS;
   }
 }

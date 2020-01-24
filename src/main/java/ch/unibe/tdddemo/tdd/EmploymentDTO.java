@@ -11,6 +11,14 @@ public class EmploymentDTO {
   private final Date beginDate;
   private final Date endDate;
 
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
   public EmploymentDTO(String firstName, String lastName, String departmentName, String roleTypeName, Date beginDate, Date endDate) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -18,14 +26,6 @@ public class EmploymentDTO {
     this.roleTypeName = roleTypeName;
     this.beginDate = beginDate;
     this.endDate = endDate;
-  }
-
-  public String getFirstName() {
-    return firstName;
-  }
-
-  public String getLastName() {
-    return lastName;
   }
 
   public String getDepartmentName() {
