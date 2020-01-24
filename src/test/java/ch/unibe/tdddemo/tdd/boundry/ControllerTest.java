@@ -28,7 +28,7 @@ class ControllerTest {
   }
 
   @Test
-  void resultGiven() {
+  void resultGiven() throws NoResultFoundException {
     EmploymentDTO employmentDTO =
         new EmploymentDTO(
             "testfistname",

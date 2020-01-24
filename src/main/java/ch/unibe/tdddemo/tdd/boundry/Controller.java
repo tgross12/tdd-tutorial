@@ -2,8 +2,6 @@ package ch.unibe.tdddemo.tdd.boundry;
 
 import java.util.List;
 
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch.unibe.tdddemo.tdd.control.DbService;
@@ -17,12 +15,12 @@ public class Controller {
     this.service = service;
   }
 
-  @GetMapping(value = "/hello", produces = MediaType.APPLICATION_JSON_VALUE)
-  public String helloWorld() {
-    return "{\"Greeting\":\"Hello world!\"}";
-  }
-
-  public List<EmploymentDTO> getEmploymentByGuid(String guid) {
-    return null;
+  public List<EmploymentDTO> getEmploymentByGuid(String guid) throws NoResultFoundException {
+    List<EmploymentDTO> employment = service.getEmployment(guid);
+    if (employment.isEmpty()) {
+      throw new NoResultFoundException();
+    } else {
+      return employment;
+    }
   }
 }
