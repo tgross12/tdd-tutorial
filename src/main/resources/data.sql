@@ -4,7 +4,8 @@ CREATE TABLE Persons
 (
     PersonID  INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(250) NOT NULL,
-    LastName  VARCHAR(250) NOT NULL
+    LastName  VARCHAR(250) NOT NULL,
+    Guid VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE Departments
@@ -19,7 +20,7 @@ CREATE TABLE RoleTypes
     Name       VARCHAR(250) NOT NULL
 );
 
-CREATE TABLE Role
+CREATE TABLE Roles
 (
     Roleid       INT AUTO_INCREMENT PRIMARY KEY,
     PersonID     INT,
@@ -32,10 +33,10 @@ CREATE TABLE Role
     EndDate      DATE
 );
 
-INSERT INTO Persons (FirstName, LastName)
-VALUES ('Leo', 'Tolstoy'),
-       ('Mikhail', 'Bakunin'),
-       ('Camillo', 'Berneri');
+INSERT INTO Persons (FirstName, LastName, Guid)
+VALUES ('Leo', 'Tolstoy', 'lttestguid'),
+       ('Mikhail', 'Bakunin', 'mbtestguid'),
+       ('Camillo', 'Berneri', 'cbtestguid');
 
 INSERT INTO Departments (Name)
 VALUES ('State Dept'),
@@ -45,7 +46,7 @@ INSERT INTO RoleTypes (Name)
 VALUES ('Employee'),
        ('Lecturer');
 
-INSERT INTO Role (PersonID, DepartmentID, RoleTypeID, BeginDate, EndDate)
+INSERT INTO Roles (PersonID, DepartmentID, RoleTypeID, BeginDate, EndDate)
 VALUES ((SELECT PersonID from Persons WHERE LastName = 'Tolstoy'),
         (SELECT DepartmentID FROM Departments WHERE Name = 'State Dept'),
         (SELECT RoleTypeID FROM RoleTypes WHERE Name = 'Employee'),
