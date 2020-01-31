@@ -27,7 +27,18 @@ public class ControllerIntegrationTest {
     assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
     assertThat(result.getBody())
         .isEqualTo(
-            "[{\"firstName\":\"Camillo\",\"lastName\":\"Berneri\",\"departmentName\":\"God Dept\",\"roleTypeName\":\"Employee\",\"beginDate\":\"2010-10-10\",\"endDate\":\"2015-10-17\"},{\"firstName\":\"Camillo\",\"lastName\":\"Berneri\",\"departmentName\":\"God Dept\",\"roleTypeName\":\"Lecturer\",\"beginDate\":\"2008-08-17\",\"endDate\":\"2020-12-01\"}]");
+            "[{\"firstName\":\"Camillo\"," +
+                "\"lastName\":\"Berneri\"," +
+                "\"departmentName\":\"God Dept\"," +
+                "\"roleTypeName\":\"Employee\"," +
+                "\"beginDate\":\"2010-10-10\"," +
+                "\"endDate\":\"2015-10-17\"}," +
+                "{\"firstName\":\"Camillo\"," +
+                "\"lastName\":\"Berneri\"," +
+                "\"departmentName\":\"God Dept\"," +
+                "\"roleTypeName\":\"Lecturer\"," +
+                "\"beginDate\":\"2008-08-17\"," +
+                "\"endDate\":\"2020-12-01\"}]");
   }
 
   @Test
